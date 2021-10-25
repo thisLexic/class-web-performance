@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    
+    <style>
+        p { font-family: Alegreya;}
+    </style>
+
+    <link rel="preload" href="./fonts/kern/Alegreya-Regular-kern-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./fonts/kern/Alegreya-Italic-kern-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./fonts/kern/Alegreya-Bold-kern-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="preload" href="./fonts/kern/Alegreya-VariableFont_wght-kern-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./fonts/kern/Alegreya-Italic-VariableFont_wght-kern-latin.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <style>
+        @font-face {
+            font-family: Alegreya;
+            src: url(./fonts/kern/Alegreya-Regular-kern-latin.woff2) format("woff2"),
+            url(./fonts/kern/Alegreya-Regular-kern-latin.woff) format("woff");
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: Rubik;
+            src: url(./fonts/kern/Alegreya-Italic-kern-latin.woff2) format("woff2"),
+            url(./fonts/kern/Alegreya-Italic-kern-latin.woff) format("woff");
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: Alegreya;
+            src: url(./fonts/kern/Alegreya-Bold-kern-latin.woff2) format("woff2"),
+            url(./fonts/kern/Alegreya-Bold-kern-latin.woff) format("woff");
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: Rubik;
+            src: url(./fonts/kern/Alegreya-VariableFont_wght-kern-latin.woff2) format("woff2"),
+            url(./fonts/kern/Alegreya-VariableFont_wght-kern-latin.woff) format("woff");
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: Alegreya;
+            src: url(./fonts/kern/Alegreya-Italic-VariableFont_wght-kern-latin.woff2) format("woff2"),
+            url(./fonts/kern/Alegreya-Italic-VariableFont_wght-kern-latin.woff) format("woff");
+            font-weight: 400;
+            font-display: swap;
+        }
+    </style>
+
+    <script>
+        if('fonts' in document) {
+            let fonts;
+            if(CSS.supports('(font-variation-settings: normal)')){
+                fonts = [
+                    new FontFace(
+                        "Alegreya",
+                        `url('./fonts/unkern/Alegreya-VariableFont_wght.woff2') format('woff2'),
+                        url('./fonts/unkern/Alegreya-VariableFont_wght.woff') format('woff')`,
+                        {
+                            'weight': '100 900'
+                        }
+                    ),
+                    new FontFace(
+                        "Alegreya",
+                        `url('./fonts/unkern/Alegreya-Italic-VariableFont_wght.woff2') format('woff2'),
+                        url('./fonts/unkern/Alegreya-Italic-VariableFont_wght.woff') format('woff')`,
+                        {
+                            'weight': '100 900'
+                        }
+                    )
+                ];
+            } else {
+                fonts = [
+                    new FontFace(
+                        "Alegreya",
+                        `url('./fonts/unkern/Alegreya-Regular.woff2') format('woff2'),
+                        url('./fonts/unkern/Alegreya-Regular.woff') format('woff')`
+                    ),
+                    new FontFace(
+                        "Alegreya",
+                        `url('./fonts/unkern/Alegreya-Italic.woff2') format('woff2'),
+                        url('./fonts/unkern/Alegreya-Italic.woff') format('woff')`
+                    ),
+                    new FontFace(
+                        "Alegreya",
+                        `url('./fonts/unkern/Alegreya-Bold.woff2') format('woff2'),
+                        url('./fonts/unkern/Alegreya-Bold.woff') format('woff')`, 
+                        { weight: "700" }
+                    )
+                ];
+            }
+            Promise.all(fonts.map(font => font.load())).then(fonts => {
+                fonts.forEach(function(font) {
+                    document.fonts.add(font);
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <p><em>I am Italian</em></p>
+    <p>I am Normalian</p>
+    <p><strong>I am Batman: The brave and the bold</strong></p>
+</body>
+</html>
