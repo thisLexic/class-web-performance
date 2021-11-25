@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+</head>
+<body>
+    <h1>Tier B - Using img element</h1>
+    <h1>JPG, 60% size reduction, 720x480 bike</h1>
+    <img src="images/bike60_720x480.jpg" alt="JPG 60% size reduction 720x480 bike">
+    <h1>JPG, 60% size reduction bike</h1>
+    <img src="images/bike60.jpg" alt="JPG 60% size reduction bike">
+
+    <h1>Tier A - Using picture element</h1>
+    <h1>JPG, 60% size reduction, 40 Quality bike</h1>
+    <picture>
+        <source srcset="images/bike60.jpg">
+        <img src="images/bike60.jpg" alt="JPG 60% size reduction bike">
+    </picture> 
+    <h1>WebP, 60% size reduction, 75.7 Quality bike</h1>
+    <picture>
+        <source srcset="images/bike60.webp">
+        <img src="" alt="Cannot find webp file">
+    </picture> 
+</body>
+</html>

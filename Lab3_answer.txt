@@ -1,0 +1,7 @@
+How do they compare, for the same file size?
+The WebP image retains more quality and is therefore clearer than the JPG image when both images are reduced to the same file size.
+
+How much work was it to reduce the file size in JPG? In WebP?
+The JPG image took less than a second to reduce its file size on Squoosh.
+The WebP image took around five seconds to reduce its file size on Squoosh.
+WebP images take longer to reduce than JPG images.
