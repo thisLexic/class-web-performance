@@ -1,0 +1,64 @@
+1. What are the different tasks done?
+js_build
+sass_build 
+imagemin_build
+
+serve_site
+browser_reload
+
+js_watcher
+sass_watcher
+image_watcher
+html_watcher
+
+2. What happens within each task?
+
+js_build:
+get a copy of all Javascript files under the following path: ./src/js/**/
+perform linting using eslint
+make the Javascript backwards compatible (compatible with older browsers) using babel
+minify the Javascript using gulp-uglify
+concatenate it to all.js
+place the ouput in ./dist/js
+
+sass_build:
+get a copy of all SCSS and SASS files under the following path: ./src/sass/**/
+perform linting using gulp-sass-lint
+render CSS files and log any errors
+minify the CSS files using gulp-cssnano
+place the ouput in ./dist/css
+
+imagemin_build:
+get a copy of all files under the following path: ./src/images/**/
+minify the image using gulp-imagemin
+place the ouput in ./dist/images
+
+serve_site:
+serve from the current directory using browserSync
+
+browser_reload:
+reload the browser using browserSync
+
+js_watcher:
+execute js_build and browser_reload in order when a change occurs to Javascript files in the following path: src/js/**/
+
+sass_watcher:
+execute sass_build and browser_reload in order when a change occurs to SCSS files in the following path: src/sass/**/
+
+image_watcher:
+execute imagemin_build and browser_reload in order when a change occurs in the following path: src/images/**/
+
+html_watcher:
+execute browser_reload when a change occurs to HTML files in the following path: **/
+
+3. How are the different tasks done? Parallel? Series? Explain why the decision made makes sense.
+
+We first execute js_build, sass_build, and imagemin_build in parallel.
+This ensures that all the files we will serve are optimized.
+
+Once that is done, the second task is to serve the optimized website using serve_site.
+
+After that, the developer may still add, modify, and remove some of the HTML, Javascript, CSS, and images.
+That is why we need to continually watch all paths that contain these files in parallel.
+This is to ensure that once something is added, modified, or removed, it can rebuild the necessary files.
+Afterwards, the browser is reloaded with browser_reload such that the website will reflect the changes made by the developer.
